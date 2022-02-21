@@ -62,6 +62,7 @@ twilio:
   auth_token: "xxxxxxxxxx"
   twilio_number: "whatsapp:+14155238886" #number taken from twilio account 
 ```
+useful tutorial video: https://www.youtube.com/watch?v=gLt8j8ebDK8&t=132s 
 ### 4. In twilio sandbox: copy link obtained in the terminal after running "ngrok http 5005" and paste it in the sandbox.
 Paste the link using the format: "https://ngrok-url/webhooks/twilio/webhook" 
 
