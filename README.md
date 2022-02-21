@@ -1,8 +1,10 @@
 # rasa_cvd_masterproject
-**To start the installation run: **
-- python3.7 -m pip install virtualenv 
-- mkdir rasa-demo
-- cd rasa-demo 
+## To start the installation run: 
+```
+$ python3.7 -m pip install virtualenv 
+$ mkdir rasa-demo
+$ cd rasa-demo 
+```
 
 #Create a new virtual environment by choosing a Python interpreter and making a ./venv directory to hold it:
 python3.7 -m venv ./venv
