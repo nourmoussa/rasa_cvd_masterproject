@@ -1,0 +1,77 @@
+version: "3.0"
+
+stories:
+
+- story: Welcome Path + W + Pregnant 
+  steps:
+  - intent: greet
+  - action: utter_welcome-greet
+  - intent: affirm
+  - action: utter_disclaimer
+  - intent: affirm
+  - action: utter_age
+  - intent: age-user
+  - action: utter_gender
+  - intent: woman-path-intent-0
+  - action: utter_pregnant
+  - intent: affirm
+  - action: utter_pregnant-path-intent-0 
+  - action: utter_bmi-intro
+  - action: utter_weight-question
+  - intent: my_weight
+    entities:
+      - weight: '60'
+  - action: action_set_weight
+  - action: utter_height-question
+  - intent: my_height
+    entities:
+      - height: '165'
+  - action: action_set_height
+  - action: action_calculate_bmi
+  - action: utter_background-path-intent-0
+
+- story: Welcome Path + W + NOT Pregnant 
+  steps:
+  - intent: greet
+  - action: utter_welcome-greet
+  - intent: affirm
+  - action: utter_disclaimer
+  - intent: affirm
+  - action: utter_age
+  - intent: age-user
+  - action: utter_gender
+  - intent: woman-path-intent-0
+  - action: utter_pregnant
+  - intent: deny
+  - action: utter_bmi-intro
+  - action: utter_weight-question
+  - intent: my_weight
+    entities:
+      - weight: '60'
+  - action: utter_height-question
+  - intent: my_height
+    entities:
+      - height: '165'
+  - action: utter_background-path-intent-0
+
+- story: Welcome Path + M 
+  steps:
+  - intent: greet
+  - action: utter_welcome-greet
+  - intent: affirm
+  - action: utter_disclaimer
+  - intent: affirm
+  - action: utter_age
+  - intent: age-user
+  - action: utter_gender
+  - intent: man-path-intent-0
+  - action: utter_bmi-intro
+  - action: utter_weight-question
+  - intent: my_weight
+    entities:
+      - weight: '60'
+  - action: utter_height-question
+  - intent: my_height
+    entities:
+      - height: '165'
+  - action: utter_background-path-intent-0

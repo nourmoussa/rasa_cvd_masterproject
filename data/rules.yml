@@ -1,0 +1,9 @@
+#version: "3.0"
+
+#rules:
+
+#- rule: Greet everytime someone greets 
+#  steps:
+#  - intent: greet
+#  - action: utter_welcome-greet
+
