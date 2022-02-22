@@ -1,0 +1,343 @@
+version: '2.0'
+actions: []
+entities:
+  - age
+  - weight
+  - height
+  - affirm
+  - deny
+  - 0-1
+  - 2-5
+  - 5+
+  - location
+  - thank
+  - hours-sleep
+  - racial-id
+slots:
+  age:
+    auto_fill: true
+    initial_value: null
+    type: text
+  weight:
+    auto_fill: true
+    initial_value: null
+    type: text
+  height:
+    auto_fill: true
+    initial_value: null
+    type: text
+  affirm:
+    auto_fill: true
+    initial_value: null
+    type: text
+  deny:
+    auto_fill: true
+    initial_value: null
+    type: text
+  0-1:
+    auto_fill: true
+    initial_value: null
+    type: text
+  2-5:
+    auto_fill: true
+    initial_value: null
+    type: text
+  5+:
+    auto_fill: true
+    initial_value: null
+    type: text
+  location:
+    auto_fill: true
+    initial_value: null
+    type: text
+  thank:
+    auto_fill: true
+    initial_value: null
+    type: text
+  hours-sleep:
+    auto_fill: true
+    initial_value: null
+    type: text
+  racial-id:
+    auto_fill: true
+    initial_value: null
+    type: text
+intents:
+  - greet:
+      use_entities: []
+  - affirm:
+      use_entities: []
+  - age-user:
+      use_entities: []
+  - woman-path-intent-0:
+      use_entities: []
+  - pregnant-path-intent-1:
+      use_entities: []
+  - bmi-weight-user:
+      use_entities: []
+  - bmi-height-user:
+      use_entities: []
+  - background-path-intent-1:
+      use_entities: []
+  - thank:
+      use_entities: []
+  - stop-assessment-path-intent-0:
+      use_entities: []
+  - deny:
+      use_entities: []
+  - man-path-intent-0:
+      use_entities: []
+  - continue-assessment-path-intent-0:
+      use_entities: []
+  - count-sleep-hours:
+      use_entities: []
+  - fallback:
+      use_entities: []
+responses:
+  utter_welcome-greet:
+    - text: 'Hello! I am your cardiovascular agent and I am here to help you uncover potential health risks and manage your lifestyle accordingly. '
+    - text: 'Hello! I am your cardiovascular agent and I am here to help you understand risks associated to heart diseases. '
+  utter_disclaimer:
+    - text: 'Please note that this assessment is not intended or implied to be a substitute for professional medical advice, diagnosis or treatment.'
+    - text: 'It is important to note that this assessment is not intended or implied to be a substitute for professional medical advice, diagnosis or treatment. Please consult qualified medical specialists in the case of any severe symptoms, such as: heart burn, difficulty breathing, striking neck, jaw or heart pain and others. '
+  utter_age:
+    - text: 'I am going to start my assessment by asking you about your age as it is directly correlated to cardiovascular risks. How old are you? '
+    - text: 'I am going to start my assessment by asking you about your age. Did you know that age as it is directly correlated to cardiovascular risks. How old are you? (enter full digitals, e.g: 30)'
+  utter_gender:
+    - text: Thank you for your answer! Now could you please tell me which gender do you identify with? (Man/Woman) This data will be collected to give you a personalized experience and accurate results.
+    - text: Thank you! Now could type in he gender you identify with? (Man/Woman) This data will be collected to give you a personalized experience and accurate results.
+  utter_untitled-path-intent-20:
+    - text: Type here
+  utter_gender-intent:
+    - text:
+        audioUrl: ''
+        text: Gender
+      buttons:
+        - title: ''
+          payload: ''
+        - title: ''
+          payload: ''
+  utter_woman-path-intent-1:
+    - text: 'This is helpful for me to know! Did you know that CVD develops 7-10 years later in women than in men. This is due to often experiencing less obvious symptoms. '
+    - text: This is helpful for me to know! Women often experience less obvious symptoms and therefore heart diseases are detected 7-10 years later.
+  utter_pregnant:
+    - text: 'My second question to you is are you pregnant? '
+    - text: 'Are you pregnant? '
+  utter_pregnant-intent:
+    - text:
+        audioUrl: ''
+        text: Pregnant
+      buttons:
+        - title: ''
+          payload: ''
+        - title: ''
+          payload: ''
+  utter_pregnant-path-intent-0:
+    - text: 'Pregnancy is a physiologic dynamic process and the management of CVD during pregnancy can be challenging. I am here to help you! '
+    - text: 'I am here to help you navigate challenges associated with CVD while being pregnant. Let''s follow! '
+  utter_bmi-intro:
+    - text: 'Despite similar longevity compared with normal BMI, a higher BMI is associated with increased risk of morbidities and developing CVD at earlier age. '
+  utter_weight-question:
+    - text: Could you please type in your weight (kg)?
+    - text: 'How much do you weight? (enter digits in kg, e.g: {weight} kg)'
+  utter_height-question:
+    - text: 'The next I need to calculate your BMI is you height. Could you please type in your height (cm)? '
+    - text: 'How tall are you? (enter your height in cm, e.g: 160 cm)'
+  utter_background-path-intent-0:
+    - text: 'Thanks! I now want to ask you about your race. I will use this information in my assessment as studies have shown that racial differences explain some, but not all, of racial disparities in CVD risk.'
+  utter_heredity:
+    - text: 'Great! Have your parents, siblings or children had any cardiovascular event at an early age (younger than age 55 for men and younger than age 65 for women)?'
+  utter_heredity-affirm-deny:
+    - text: ''
+      quick_replies:
+        - title: 'Yes'
+          payload: '/smoking-path-intent-0{{"affirm": "Yes"}}'
+        - title: 'No'
+          payload: '/smoking-path-intent-0{{"deny": "No"}}'
+  utter_smoking-path-intent-0:
+    - text: 'Ok. Your day to day activities can have a direct effect on your cardiovascular health. Therefore, I would like to ask you  whether you smoke or not? '
+  utter_smoking-affirm-deny:
+    - text: ''
+      quick_replies:
+        - title: 'Yes'
+          payload: '/smoking-initial{{"affirm": "Yes"}}'
+        - title: 'No'
+          payload: '/not-smoking{{"deny": "No"}}'
+  utter_smoking-initial:
+    - text: 'Have you smoked a cigarette, cigar or pipe in the last 12 months?'
+    - text: 'In the last 12 months, have you smoked a cigarette, cigar or pipe?'
+  utter_yes-smoking:
+    - text: ''
+      quick_replies:
+        - title: 'Yes'
+          payload: '/smoking-inform{{"affirm": "Yes"}}'
+        - title: 'No'
+          payload: '/not-smoking{{"deny": "No"}}'
+  utter_smoking-inform:
+    - text: 'According to research, Smoking has been associated with a two-to fourfold increased risk of coronary heart disease. '
+    - text: 'Quitting smoking could reduce future morbidities associated with CVD. Follow that link to find out about the best quit smoking apps: https://www.healthline.com/health/quit-smoking/top-iphone-android-apps#:~:text=Quit%20Smoking%20Apps%202019%201%20Overview.%20Smoking%20remains,motivated%2C%20a%20strong%20ex-smoker%20community%2C%20...%20See%20More.'
+  utter_pe-start:
+    - text: 'Another habit I would like to discuss is: physical activity. Which one of these statements best describes your usual weekly physical activity? A) At least 75 minutes of exercise, B) Less than 75 minutes, C) No physical activity'
+    - text: 'In terms of physical activity, which one of these statements best describes your usual weekly physical activity? A) At least 75 minutes of exercise, B) Less than 75 minutes, C) No physical activity'
+  utter_pe-options:
+    - text: ''
+      quick_replies:
+        - title: A
+          payload: /pe-inform
+        - title: B
+          payload: /pe-inform
+        - title: C
+          payload: /pe-inform
+  utter_pe-inform:
+    - text: 'Regular exercise can help you lower lifetime risks of CVD. This includes: running, swimming, playing tennis, football and all sorts of physical activity. '
+    - text: 'Finding a sport you love and practicing it on a regular basis could have positive effects on your lifestyle, and significantly reduce risks associated to CVD. '
+  utter_fruits/vegetables:
+    - text: Physical activity is very important and so is your diet! How many servings of fruits and vegetables do you eat in a typical day?
+  utter_count-fruits/vegetables:
+    - text: ''
+      quick_replies:
+        - title: 0-1
+          payload: '/diet-inform-1{{"0-1": "0-1"}}'
+        - title: 2-5
+          payload: '/diet-inform-1{{"2-5": "2-5"}}'
+        - title: 5+
+          payload: '/diet-inform-1{{"5+": "5+"}}'
+  utter_diet-inform-1:
+    - text: 'It is really important that you focus on having a healthy lifestyle to reduce any future morbidities associated to CVD. '
+  utter_saturated-animal-fat:
+    - text: 'How many servings of saturated (animal) fats do you eat each day (not including low-fat dairy, white and skinless turkey, white and skinless chicken, or fish)?'
+    - text: How many servings of saturated (animal) fats do you eat on average each day?
+  utter_count-saturated-animal-fat:
+    - text: ''
+      quick_replies:
+        - title: 0-1
+          payload: '/coffee{{"0-1": "0-1"}}'
+        - title: 2-5
+          payload: '/coffee{{"2-5": "2-5"}}'
+        - title: 5+
+          payload: '/coffee{{"5+": "5+"}}'
+  utter_coffee:
+    - text: 'In terms of caffeine consumption, do you consider yourself a coffee drinker? If {affirm} how many cups per day do you drink? '
+    - text: 'In terms of caffeine consumption, how many cups per day do you usually drink? '
+  utter_count-coffee:
+    - text: ''
+      quick_replies:
+        - title: 0-1
+          payload: '/coffee-inform{{"0-1": "0-1"}}'
+        - title: 2-5
+          payload: '/coffee-inform{{"2-5": "2-5"}}'
+        - title: 5+
+          payload: '/coffee-inform{{"5+": "5+"}}'
+  utter_coffee-inform:
+    - text: 'Coffee is great but it is important to moderate your caffeine intake to reduce risks of total CVD. '
+    - text: 'Coffee increases your heart and may play a role in morbidities associated to CVD. Make sure to consume it in a moderate way! '
+  utter_water:
+    - text: 'On the other hand, water is an important aspect of your daily life. How many cups of water do you drink per day? '
+    - text: 'From coffee to water.. How many cups of water do you drink per day? (0-1, 2-5, 5+)'
+  utter_water-count:
+    - text: ''
+      quick_replies:
+        - title: 0-1
+          payload: '/water-hardness{{"0-1": "0-1"}}'
+        - title: 2-5
+          payload: '/water-hardness{{"2-5": "2-5"}}'
+        - title: 5+
+          payload: '/water-hardness{{"5+": "5+"}}'
+  utter_water-hardness:
+    - text: 'Water hardness based on your geographic location can also have an effect on your CVD risk. In fact, Water hardness, as well as calcium and magnesium content of drinking water may have a protective role against CVDs.'
+    - text: 'Water hardness varies on your geographic location. Therefore, the calcium and magnesium content of the water you are drinking may change. '
+  utter_location-physical:
+    - text: 'Where are you based? '
+    - text: 'Where do you live at the moment? '
+  utter_location-list:
+    - text: ''
+      quick_replies:
+        - title: Europe
+          payload: '/location-inform{{"location": "Europe"}}'
+        - title: Middle East
+          payload: '/location-inform{{"location": "Middle East"}}'
+        - title: Asia
+          payload: '/location-inform{{"location": "Asia"}}'
+        - title: Africa
+          payload: '/location-inform{{"location": "Africa"}}'
+        - title: United States
+          payload: '/location-inform{{"location": "United States"}}'
+        - title: Latin America
+          payload: '/location-inform{{"location": "Latin America"}}'
+  utter_location-inform:
+    - text: 'Knowing where you are based, helps me figure out the local water hardness you are subject to. For example {location} has very high hardness (greater than 270 ppm CaCO 3 in 42% of the region). '
+    - text: 'Knowing where you reside, helps me figure out the local water hardness. For example {location} has a high hardness (greater than 270 ppm CaCO 3 in 42% of the region). '
+  utter_calculated-risk:
+    - text: 'So far, our conversation has been very informative. From the initial data I have gathered, I have calculated a 13% risk of CVD in 30 years. '
+    - text: 'From our initial conversation, I have calculated a 13% risk of CVD in 30 years. '
+  utter_potential-reduction-of-risk:
+    - text: 'In your case, if you were to control your risk factors for cardiovascular disease to acceptable levels, then your 30 year risk would be 5%. '
+    - text: You have the potential to reduce your risk to 5% by taking the appropriate measures in your lifestyle.
+  utter_solutions-to-reduce-risks:
+    - text: 'An initial step to take is to increase your water consumption. When dehydrated, your blood thickens as it retains more sodium, making it harder to circulate through your body. Staying hydrated helps your heart pump blood more easily and allows oxygen to reach your muscles.'
+    - text: 'An initial step to take is to balance your diet. You can refer to the healthy heart diet by the Mayo Clinic, found at: https://www.mayoclinic.org/diseases-conditions/heart-disease/in-depth/heart-healthy-diet/art-20047702 '
+  utter_welcome-after-thankyou:
+    - text: 'You''re welcome! '
+    - text: No problem!
+    - text: 'Happy to help! '
+  utter_continue-or-later:
+    - text: 'Do you want to continue the assessment now or later? '
+    - text: Do you want to continue the assessment? (Yes/No)
+  utter_continue-assessment--intent:
+    - text:
+        audioUrl: ''
+        text: 'Continue assessment? '
+      buttons:
+        - title: ''
+          payload: ''
+        - title: ''
+          payload: ''
+  utter_stop-assessment-path-intent-1:
+    - text: 'Sure, I am at your disposal and I look forward to getting to know you better! '
+    - text: 'No problem. Feel free to come back anytime as I look forward to getting to know you better! '
+  utter_not-smoking:
+    - text: 'Not smoking can lower your blood pressure and heart rate, along with many associated benefits. Keep it up!'
+  utter_going-out:
+    - text: Tell me about your social life. Have you been going out lately?
+    - text: Tell me about your social life. Have you been socialising with friends and family lately?
+  utter_yes-no-social-going-out:
+    - text: ''
+      quick_replies:
+        - title: 'Yes'
+          payload: '/people-seen-question{{"affirm": "Yes"}}'
+        - title: 'No'
+          payload: '/people-seen-question{{"deny": "No"}}'
+  utter_people-seen-question:
+    - text: How many people per week do you usually meet with?
+    - text: How many people per week do you interact with on average?
+  utter_count-people-seen:
+    - text: ''
+      quick_replies:
+        - title: 0-1
+          payload: '/social-inform{{"0-1": "0-1"}}'
+        - title: 2-5
+          payload: '/social-inform{{"2-5": "2-5"}}'
+        - title: 5+
+          payload: '/social-inform{{"5+": "5+"}}'
+  utter_social-inform:
+    - text: 'Research shows that improving social support and connectedness could not only lower depression symptoms but also help reduce cardiovascular disease. Make sure to surround yourself with good company! '
+    - text: 'Having people to rely on and being social on a regular basis can help reduce risks associated to cardiovascular disease. Make sure to surround yourself with good company! '
+  utter_sleep-hours-question:
+    - text: 'Can you now tell me how many hours on average do you sleep? (Enter integers, e.g: 8)'
+    - text: 'How many hours of sleep do you get on average per night? (Enter integers, e.g: 8)'
+  utter_sleep-inform:
+    - text: '7-8 hours of sleep is recommended for increased longevity. Both extremes of sleep duration have been associated with increased prevalence and incidence of cardiovascular diseases including hypertension, coronary heart disease, and stroke.'
+    - text: Sleeping 7 to 8 hours is recommended for adults. More or less sleep duration have been associated with increased prevalence of CVDs.
+  utter_first-time-user-intent:
+    - text:
+        audioUrl: ''
+        text: First time user?
+      buttons:
+        - title: ''
+          payload: ''
+        - title: ''
+          payload: ''
+  utter_untitled-path-intent-32:
+    - text: 'Welcome back! I enjoyed getting to know you better the last time we spoke and I am happy you are back! Let''s talk about how your lifestyle can affect your cardiovascular risk. '
+  utter_fallback:
+    - text: 'Sorry, I didn’t understand that.'
