@@ -1,0 +1,132 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - age-user
+  - woman-path-intent-0
+  - man-path-intent-0
+  - my_weight
+  - my_height
+
+entities:
+- weight
+- height
+
+slots:
+  height:
+    type: text
+  weight:
+    type: text
+
+responses:
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_welcome-greet:
+  - text: 'Hello! I am your cardiovascular agent and I am here to help you uncover potential health risks and manage your lifestyle accordingly. '
+
+  utter_disclaimer:
+  - text: 'Please note that this assessment is not intended or implied to be a substitute for professional medical advice, diagnosis or treatment.'
+
+  utter_age:
+  - text: 'I am going to start my assessment by asking you about your age as it is directly correlated to cardiovascular risks. How old are you? '
+
+  utter_gender:
+  - text: Thank you for your answer! Now could you please tell me which gender do you identify with? (Man/Woman) This data will be collected to give you a personalized experience and accurate results.
+
+  utter_woman-path-intent-1:
+  - text: 'This is helpful for me to know! Did you know that CVD develops 7-10 years later in women than in men. This is due to often experiencing less obvious symptoms. '
+
+  utter_pregnant:
+  - text: 'My second question to you is are you pregnant?'
+  
+  utter_pregnant-path-intent-0:
+  - text: 'Pregnancy is a physiologic dynamic process and the management of CVD during pregnancy can be challenging. I am here to help you! '
+
+  utter_bmi-intro:
+  - text: 'Despite similar longevity compared with normal BMI, a higher BMI is associated with increased risk of morbidities and developing CVD at earlier age. '
+
+  utter_weight-question:
+  - text: 'How much do you weight? (enter digits in kg, e.g: 60 kg)'
+ 
+  utter_height-question:
+  - text: 'The next I need to calculate your BMI is you height. Could you please type in your height (cm)? '
+
+  utter_background-path-intent-0:
+  - text: 'Thanks! I now want to ask you about your race. I will use this information in my assessment as studies have shown that racial differences explain some, but not all, of racial disparities in CVD risk.'
+
+  utter_heredity:
+  - text: 'Great! Have your parents, siblings or children had any cardiovascular event at an early age (younger than age 55 for men and younger than age 65 for women)?'
+
+  utter_smoking-path-intent-0:
+  - text: 'Ok. Your day to day activities can have a direct effect on your cardiovascular health. Therefore, I would like to ask you  whether you smoke or not? '
+  
+  utter_smoking-initial:
+  - text: 'Have you smoked a cigarette, cigar or pipe in the last 12 months?'
+
+  utter_smoking-inform:
+    - text: 'According to research, Smoking has been associated with a two-to fourfold increased risk of coronary heart disease. '
+
+  utter_pe-start:
+    - text: 'Another habit I would like to discuss is: physical activity. Which one of these statements best describes your usual weekly physical activity? A) At least 75 minutes of exercise, B) Less than 75 minutes, C) No physical activity'
+
+  utter_pe-inform:
+    - text: 'Regular exercise can help you lower lifetime risks of CVD. This includes: running, swimming, playing tennis, football and all sorts of physical activity. '
+
+  utter_fruits/vegetables:
+    - text: Physical activity is very important and so is your diet! How many servings of fruits and vegetables do you eat in a typical day?
+
+  utter_count-fruits/vegetables:
+    - text: ''
+      quick_replies:
+        - title: 0-1
+          payload: '/diet-inform-1{{"0-1": "0-1"}}'
+        - title: 2-5
+          payload: '/diet-inform-1{{"2-5": "2-5"}}'
+        - title: 5+
+          payload: '/diet-inform-1{{"5+": "5+"}}'
+  
+  utter_diet-inform-1:
+    - text: 'It is really important that you focus on having a healthy lifestyle to reduce any future morbidities associated to CVD. '
+  
+  utter_saturated-animal-fat:
+    - text: 'How many servings of saturated (animal) fats do you eat each day (not including low-fat dairy, white and skinless turkey, white and skinless chicken, or fish)?'
+    - text: How many servings of saturated (animal) fats do you eat on average each day?
+
+actions: 
+- action_set_weight
+- action_set_height
+- action_calculate_bmi
+- utter_age
+- utter_background-path-intent-0
+- utter_bmi-intro
+- utter_count-fruits/vegetables
+- utter_diet-inform-1
+- utter_disclaimer
+- utter_fruits/vegetables
+- utter_gender
+- utter_height-question
+- utter_heredity
+- utter_iamabot
+- utter_pe-inform
+- utter_pe-start
+- utter_pregnant
+- utter_pregnant-path-intent-0
+- utter_saturated-animal-fat
+- utter_smoking-inform
+- utter_smoking-initial
+- utter_smoking-path-intent-0
+- utter_weight-question
+- utter_welcome-greet
+- utter_woman-path-intent-1
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
