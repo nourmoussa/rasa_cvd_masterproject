@@ -1,4 +1,13 @@
 # rasa_cvd_masterproject
+
+## Project details
+This is an example of conversational agent flow. More detailed domain files and stories can be found on this repository: 
+https://github.com/nourmoussa/CVD_CA_4.1
+
+The demo can also be found in the 2 following links: 
+https://youtu.be/3nUH0JQngro
+https://youtu.be/zRWRacy2ZSg
+
 ## To start the installation run: 
 ```
 $ python3.7 -m pip install virtualenv 
